@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PlusIcon, GanttChartIcon, CalendarIcon, FileTextIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 export default function InvestigationPlansPage() {
   const { role } = useParams();
@@ -75,7 +76,18 @@ export default function InvestigationPlansPage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 max-w-8xl mx-auto">
+      <nav className="flex items-center space-x-2 text-sm">
+        <Link href="/" className="text-gray-500 hover:text-primary hover:underline">
+          Home
+        </Link>
+        <span className="text-gray-400">/</span>
+        <Link href={`/${role}`} className="text-gray-500 hover:text-primary hover:underline capitalize">
+          {role}
+        </Link>
+        <span className="text-gray-400">/</span>
+        <span className="text-primary font-medium">Investigation Plans</span>
+      </nav>
       {/* Page Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
@@ -164,7 +176,8 @@ export default function InvestigationPlansPage() {
                   {(role === 'investigator' || role === 'supervisor') && (
                     <Button 
                       size="sm" 
-                      className="rounded-lg"
+                      className="rounded-lg border-gray-300"
+                      variant="outline"
                     >
                       Edit
                     </Button>
