@@ -1,0 +1,9 @@
+API Rest
+Evidence Service
+POST  /api/evidences : Tạo vật chứng mới
+GET /api/evidences/{id} : Lấy chi tiết vật chứng
+PUT /api/evidences/{id}/assign-case : Gán vật chứng vào vụ án
+PUT /api/evidences/{id}/assign-suspect :Gán vật chứng vào nghi phạm
+POST /api/evidences/{id}/digital-invest :Thêm thông tin điều tra kỹ thuật số
+POST /api/evidences/{id}/forensic : Thêm kết quả pháp y
+POST /api/evidences/{id}/physical : Thêm mẫu vật thể chất
