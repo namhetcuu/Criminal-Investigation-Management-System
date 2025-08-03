@@ -58,7 +58,7 @@ export default function ReportsPage() {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-6">
+    <div className="p-6 max-w-8xl mx-auto space-y-6">
       {/* Breadcrumb */}
       <nav className="flex items-center space-x-2 text-sm text-gray-600">
         <Link href="/" className="hover:text-primary hover:underline">Home</Link>
@@ -81,11 +81,12 @@ export default function ReportsPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button className="rounded-lg gap-2">
+          <Button className="rounded-lg gap-2 border-gray-300"
+                      variant="outline">
             <PlusIcon className="h-4 w-4" />
             New Report
           </Button>
-          <Button variant="outline" className="rounded-lg gap-2">
+          <Button variant="outline" className="rounded-lg gap-2 border-gray-300">
             <DownloadIcon className="h-4 w-4" />
             Export
           </Button>
@@ -130,7 +131,7 @@ export default function ReportsPage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <CardTitle className="text-lg font-semibold text-gray-800">Report Records</CardTitle>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" className="rounded-lg gap-2">
+              <Button variant="outline" size="sm" className="rounded-lg gap-2 border-gray-300">
                 <FilterIcon className="h-4 w-4" />
                 Filter
               </Button>
@@ -168,11 +169,12 @@ export default function ReportsPage() {
                     </Badge>
                   </TableCell>
                   <TableCell className="px-5 py-4 text-right space-x-2">
-                    <Button size="sm" variant="outline" className="rounded-lg">
+                    <Button size="sm" variant="outline" className="rounded-lg border-gray-300">
                       View
                     </Button>
                     {role !== 'admin' && (
-                      <Button size="sm" className="rounded-lg">
+                      <Button size="sm" className="rounded-lg border-gray-300"
+                      variant="outline">
                         Edit
                       </Button>
                     )}

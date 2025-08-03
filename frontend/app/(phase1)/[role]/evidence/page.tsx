@@ -14,6 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import Link from 'next/link';
 
 export default function EvidencePage() {
   const { role } = useParams();
@@ -59,7 +60,19 @@ export default function EvidencePage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 max-w-8xl mx-auto">
+      <nav className="flex items-center space-x-2 text-sm">
+        <Link href="/" className="text-gray-500 hover:text-primary hover:underline">
+          Home
+        </Link>
+        <span className="text-gray-400">/</span>
+        <Link href={`/${role}`} className="text-gray-500 hover:text-primary hover:underline capitalize">
+          {role}
+        </Link>
+        <span className="text-gray-400">/</span>
+        <span className="text-primary font-medium">Evidence</span>
+      </nav>
+
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
@@ -79,7 +92,8 @@ export default function EvidencePage() {
               className="pl-9 w-full md:w-[300px] rounded-lg"
             />
           </div>
-          <Button className="gap-2 rounded-lg">
+          <Button className="gap-2 rounded-lg border-gray-300" size="sm" 
+                      variant="outline">
             <PlusIcon className="h-4 w-4" />
             Add Evidence
           </Button>
@@ -216,7 +230,7 @@ export default function EvidencePage() {
                       View
                     </Button>
                     {role !== 'admin' && (
-                      <Button size="sm" className="rounded-lg">
+                      <Button size="sm" className="rounded-lg border-gray-300" variant="outline">
                         Edit
                       </Button>
                     )}

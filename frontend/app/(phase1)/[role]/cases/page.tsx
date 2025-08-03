@@ -52,7 +52,7 @@ export default function CaseListPage() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="p-6 space-y-6 max-w-8xl mx-auto">
       {/* Breadcrumb */}
       <nav className="flex items-center space-x-2 text-sm">
         <Link href="/" className="text-gray-500 hover:text-primary hover:underline">
@@ -77,7 +77,8 @@ export default function CaseListPage() {
           </p>
         </div>
         <div className="flex gap-3">
-          <Button className="rounded-lg gap-2">
+          <Button className="rounded-lg gap-2 border-gray-300" size="sm" 
+                      variant="outline" >
             <PlusIcon className="h-4 w-4" />
             New Case
           </Button>
@@ -216,7 +217,8 @@ export default function CaseListPage() {
                       View
                     </Button>
                     {(role === 'investigator' || role === 'supervisor') && (
-                      <Button size="sm" className="rounded-lg">
+                      <Button size="sm" className="rounded-lg border-gray-300" 
+                      variant="outline">
                         Edit
                       </Button>
                     )}
