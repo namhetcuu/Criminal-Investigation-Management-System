@@ -40,7 +40,7 @@ const ReportFilter = ({ filters, onChange }: Props) => {
             {/* Severity Filter */}
             <Dropdown
                 label="Severity"
-                options={['All', 'Urgent', 'Not urgent']}
+                options={['All', 'Low', 'Medium','High']}
                 value={filters.severity}
                 onChange={(val) => handleChange('severity', val)}
             />
