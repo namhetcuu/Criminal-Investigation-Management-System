@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { FiChevronLeft, FiChevronRight, FiSearch, FiFilter, FiEye, FiDownload } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiEye, FiDownload, FiFilter, FiSearch } from 'react-icons/fi';
 import { reports as rawReports } from '@/data/mockData';
 import ReportFilter from './ReportFilter';
 import Badge from '@/components/ui/badge';
@@ -20,15 +20,12 @@ const ReportsTable = () => {
     });
 
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
+    const itemsPerPage = 10;
 
     const filteredReports = rawReports.filter((report) => {
-        const matchStatus =
-            filters.status === 'All' || report.status === filters.status;
-        const matchType =
-            filters.crimeType === 'All' || report.type === filters.crimeType;
-        const matchSeverity =
-            filters.severity === 'All' || report.severity === filters.severity;
+        const matchStatus = filters.status === 'All' || report.status === filters.status;
+        const matchType = filters.crimeType === 'All' || report.type === filters.crimeType;
+        const matchSeverity = filters.severity === 'All' || report.severity === filters.severity;
         const matchSearch = 
             report.id.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
             report.type.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
@@ -52,8 +49,7 @@ const ReportsTable = () => {
     };
 
     const handleViewReport = (reportId: string) => {
-        // Navigate to the report detail page
-        router.push(`/dashboard/reports/${reportId}`);
+        router.push(`/reports/${reportId}`);
     };
 
     return (
@@ -68,21 +64,15 @@ const ReportsTable = () => {
                         </p>
                     </div>
                     
-                    <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto">
-                        <div className="relative flex-grow max-w-md">
-                            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                            <input
-                                type="text"
-                                placeholder="Search reports..."
-                                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                value={filters.searchQuery}
-                                onChange={(e) => setFilters({...filters, searchQuery: e.target.value})}
-                            />
-                        </div>
-                        <button className="flex items-center gap-2 px-4 py-2 border rounded-md bg-white hover:bg-gray-50 transition">
-                            <FiDownload className="h-4 w-4" />
-                            Export
-                        </button>
+                    <div className="relative flex-grow max-w-md">
+                        <input
+                            type="text"
+                            placeholder="Search reports..."
+                            className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            value={filters.searchQuery}
+                            onChange={(e) => setFilters({...filters, searchQuery: e.target.value})}
+                        />
+                        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     </div>
                 </div>
 
